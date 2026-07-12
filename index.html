@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>In Good Company — holding space for those who hold space for others</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --headfont:'Cormorant Garamond';
+    --walnut:#1E1710;        /* brand anchor */
+    --ink:#332A20;           /* body text */
+    --ivory:#F7F3EC;         /* page ground */
+    --parchment:#EFE8DC;     /* section alternation */
+    --clay:#A6683F;          /* warm accent — links, buttons */
+    --clay-deep:#8A5330;     /* hover */
+    --slate:#5F6B6D;         /* quiet secondary — professional calm */
+    --line:#DDD3C3;
+    --maple:#9A3B2E;         /* used sparingly: the Canadian marker */
+    font-size:17px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Source Sans 3',system-ui,sans-serif;background:var(--ivory);color:var(--ink);line-height:1.65}
+  h1,h2,h3,.serif{font-family:var(--headfont),Georgia,serif;color:var(--walnut);font-weight:600}
+  a{color:var(--clay);text-decoration:none}
+  a:hover{color:var(--clay-deep)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+
+  /* header */
+  header{background:var(--walnut);position:sticky;top:0;z-index:10}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .wordmark{font-family:var(--headfont),serif;font-size:1.55rem;font-weight:600;color:var(--ivory);letter-spacing:.01em}
+  .logo{display:flex;flex-direction:column;line-height:1.12}
+  .wordmark .dom{position:relative;color:#C08A5F;font-style:italic;font-weight:500;display:inline-block}
+  .wordmark .dom svg{position:absolute;left:10%;right:0;bottom:-.24em;width:86%;height:.36em}
+  .tagline-sm{font-family:var(--headfont),serif;font-style:italic;font-size:.78rem;color:#C9BCA6;letter-spacing:.02em}
+  @media(max-width:640px){.tagline-sm{display:none}}
+  nav ul{display:flex;gap:28px;list-style:none;font-size:.92rem}
+  nav a{color:#E8E0D2}
+  nav a:hover{color:#fff}
+  .nav-cta{background:var(--clay);color:#fff!important;padding:8px 18px;border-radius:3px;font-weight:600}
+  .nav-cta:hover{background:var(--clay-deep)}
+
+  /* hero */
+  .hero{padding:96px 0 72px;text-align:center}
+  .hero h1{font-size:clamp(2.4rem,5.5vw,3.9rem);line-height:1.12;font-weight:600;max-width:19ch;margin:0 auto 26px}
+  .hero .sub{max-width:62ch;margin:0 auto 12px;font-size:1.12rem}
+  .hero .roles{max-width:60ch;margin:0 auto 36px;color:var(--slate);font-size:1rem}
+  .btn{display:inline-block;background:var(--clay);color:#fff;padding:14px 34px;border-radius:3px;font-weight:600;font-size:1.02rem;border:none;cursor:pointer}
+  .btn:hover{background:var(--clay-deep);color:#fff}
+  .hero .quiet{margin-top:16px;font-size:.9rem;color:var(--slate)}
+  .canadian{display:inline-flex;align-items:center;gap:8px;margin-top:40px;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--maple)}
+  .canadian::before,.canadian::after{content:"";width:34px;height:1px;background:var(--maple);opacity:.5}
+
+  /* doors */
+  .doors{background:var(--parchment);padding:76px 0}
+  .doors h2{text-align:center;font-size:2.1rem;margin-bottom:10px}
+  .doors .lede{text-align:center;max-width:56ch;margin:0 auto 48px;color:var(--ink)}
+  .door-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  @media(max-width:820px){.door-grid{grid-template-columns:1fr}}
+  .door{background:var(--ivory);border:1px solid var(--line);border-top:3px solid var(--clay);border-radius:4px;padding:34px 30px;display:flex;flex-direction:column}
+  .door h3{font-size:1.45rem;margin-bottom:6px}
+  .door .who{color:var(--slate);font-size:.9rem;margin-bottom:16px;font-style:italic}
+  .door ul{list-style:none;font-size:.95rem;flex:1}
+  .door li{padding:7px 0;border-bottom:1px solid var(--line)}
+  .door li:last-child{border-bottom:none}
+  .door li a{color:var(--ink)}
+  .door li a:hover{color:var(--clay-deep)}
+  .door .enter{margin-top:20px;font-weight:600;font-size:.95rem}
+
+  /* belonging */
+  .belong{padding:86px 0;text-align:center}
+  .belong blockquote{font-family:var(--headfont),serif;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.4;color:var(--walnut);max-width:34ch;margin:0 auto 22px;font-weight:500}
+  .belong p{max-width:58ch;margin:0 auto;color:var(--ink)}
+
+  /* letter */
+  .letter{background:var(--walnut);color:var(--ivory);padding:80px 0}
+  .letter .inner{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center}
+  @media(max-width:820px){.letter .inner{grid-template-columns:1fr}}
+  .letter h2{color:var(--ivory);font-size:2rem;margin-bottom:18px}
+  .letter p{color:#E8E0D2;margin-bottom:14px;font-size:1.02rem}
+  .letter .no-noise{font-style:italic;color:#C9BCA6}
+  .signup{background:rgba(247,243,236,.06);border:1px solid rgba(247,243,236,.25);border-radius:4px;padding:30px}
+  .signup label{display:block;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:#C9BCA6;margin-bottom:10px}
+  .signup input{width:100%;padding:13px 14px;border-radius:3px;border:1px solid rgba(247,243,236,.35);background:var(--ivory);color:var(--ink);font-size:1rem;margin-bottom:14px;font-family:inherit}
+  .signup .btn{width:100%}
+  .signup .confirm{display:none;text-align:center;padding:26px 6px}
+  .signup .confirm .serif{color:var(--ivory);font-size:1.6rem;margin-bottom:8px}
+  .signup .confirm p{color:#C9BCA6}
+
+  /* build together */
+  .build{padding:84px 0;background:var(--ivory)}
+  .build .inner{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  @media(max-width:820px){.build .inner{grid-template-columns:1fr}}
+  .build h2{font-size:1.9rem;margin-bottom:16px}
+  .build p{margin-bottom:14px}
+  .two-min{background:var(--parchment);border-left:3px solid var(--clay);padding:26px 28px;border-radius:0 4px 4px 0;align-self:center}
+  .two-min h3{font-size:1.25rem;margin-bottom:10px}
+  .two-min p{font-size:.98rem}
+
+  /* footer */
+  footer{background:var(--parchment);border-top:1px solid var(--line);padding:52px 0 40px}
+  .foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:baseline}
+  .tagline{font-family:var(--headfont),serif;font-style:italic;font-size:1.25rem;color:var(--walnut)}
+  .foot-links{display:flex;gap:24px;font-size:.9rem;list-style:none}
+  .fine{margin-top:26px;font-size:.82rem;color:var(--slate)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#" aria-label="In Good Company home">
+      <span class="wordmark">In Good Company<span class="dom">.space<svg viewBox="0 0 100 16" aria-hidden="true"><path d="M4 4 Q50 15 96 4" fill="none" stroke="#C08A5F" stroke-width="2.6" stroke-linecap="round"/></svg></span></span>
+      <span class="tagline-sm">holding space for those who hold space for others</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#doors">The Library</a></li>
+        <li><a href="#letter">The Letter</a></li>
+        <li><a href="#build">Contribute</a></li>
+        <li><a href="#">About</a></li>
+        <li><a class="nav-cta" href="#letter">Join us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>This work can be lonely.<br>Find your people.</h1>
+    <p class="sub">In Good Company is a network of colleagues across Canadian death care, forming now.</p>
+    <p class="roles">Funeral directors, hospice and palliative teams, death doulas, grief counsellors, celebrants, social workers, faith leaders, educators, and everyone in between.</p>
+    <a class="btn" href="#letter">Join us. You're in good company.</a>
+    <div><span class="canadian">A Canadian Perspective</span></div>
+  </div>
+</section>
+
+<section class="doors" id="doors">
+  <div class="wrap">
+    <h2>Where do you stand in this work?</h2>
+    <p class="lede">The library is organized around the people who use it. Step through the door that sounds like your days, and find writing chosen for the work you actually do.</p>
+    <div class="door-grid">
+      <div class="door">
+        <h3>Care Sectors</h3>
+        <p class="who">You are with people before, during, and after a death.</p>
+        <ul>
+          <li><a href="#">Funeral Homes &amp; Directors</a></li>
+          <li><a href="#">Hospice Care</a></li>
+          <li><a href="#">Palliative Care</a></li>
+          <li><a href="#">Death Doulas</a></li>
+          <li><a href="#">Elder Care &amp; Long-Term Care</a></li>
+          <li><a href="#">Celebrants &amp; Officiants</a></li>
+          <li><a href="#">Faith Communities</a></li>
+          <li><a href="#">Estate Lawyers &amp; Planners</a></li>
+        </ul>
+        <a class="enter" href="#">Enter the library &rarr;</a>
+      </div>
+      <div class="door">
+        <h3>Grief Specialisations</h3>
+        <p class="who">You sit with particular losses, and the people carrying them.</p>
+        <ul>
+          <li><a href="#">Grief Counsellors &amp; Therapists</a></li>
+          <li><a href="#">Parental Grief</a></li>
+          <li><a href="#">Children in Grief</a></li>
+          <li><a href="#">Traumatic &amp; Sudden Loss</a></li>
+          <li><a href="#">Disenfranchised Grief</a></li>
+          <li><a href="#">Perinatal &amp; Pregnancy Loss</a></li>
+          <li><a href="#">Pet Loss Support</a></li>
+        </ul>
+        <a class="enter" href="#">Enter the library &rarr;</a>
+      </div>
+      <div class="door">
+        <h3>Planning &amp; Education</h3>
+        <p class="who">You help people prepare, understand, and navigate.</p>
+        <ul>
+          <li><a href="#">Advanced Care Planning</a></li>
+          <li><a href="#">Bereaved Families</a></li>
+          <li><a href="#">Healthcare Professionals</a></li>
+          <li><a href="#">Social Workers</a></li>
+          <li><a href="#">Community Educators</a></li>
+        </ul>
+        <a class="enter" href="#">Enter the library &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="belong">
+  <div class="wrap">
+    <blockquote>Everyone at this table does the same essential thing: they hold space for people in the hardest moments of their lives.</blockquote>
+    <p>Some of us came to this work through training. Some through a calling they could not fully explain. Some through a loss that changed the direction of a life. However you arrived, you have stood in the same rooms and carried the same weight, and you deserve colleagues who understand it without needing it explained. Whatever your role, and whatever letters do or do not follow your name, you belong here. That is the only credential this community checks.</p>
+  </div>
+</section>
+
+<section class="letter" id="letter">
+  <div class="wrap inner">
+    <div>
+      <h2>One letter a week. Worth reading over your morning coffee.</h2>
+      <p>Every week we read the research, the reporting, and the conversations moving through death care, grief, and end-of-life work, and we send you the pieces worth your time. What was found, why it matters to the work you do, and one question worth sitting with. Written from a Canadian perspective, for the people doing this work here.</p>
+      <p class="no-noise">No noise. No selling. Nothing urgent. A letter from colleagues, for colleagues.</p>
+    </div>
+    <form class="signup" onsubmit="event.preventDefault();this.querySelector('.fields').style.display='none';this.querySelector('.confirm').style.display='block';">
+      <div class="fields">
+        <label for="em">Your email</label>
+        <input id="em" type="email" required placeholder="you@wherever.ca">
+        <button class="btn" type="submit">Keep company with us</button>
+      </div>
+      <div class="confirm">
+        <div class="serif">Welcome.</div>
+        <p>You're in good company.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="build" id="build">
+  <div class="wrap inner">
+    <div>
+      <h2>We're building this together.</h2>
+      <p>In Good Company publishes writing by the people who do this work. If you have something to say to your colleagues, whether it comes from hospice nights, doula practice, the counselling room, the funeral home, the classroom, or the parking lot conversations in between, we want to read it.</p>
+      <p>If you have written something your colleagues should see, or found something they should read, send it along. A link, a full draft, or a half-formed idea all count. Everything that comes in gets read, and you will always hear back.</p>
+      <a class="enter" href="#">How contributing works &rarr;</a>
+    </div>
+    <div class="two-min">
+      <h3>The two-minute contribution</h3>
+      <p>Not ready to write an article? Every letter closes with an open question. Answer it. The best responses appear in the following letter, credited to you. That is a contribution, and it counts.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="tagline">Holding space for those who hold space for others.</div>
+      <ul class="foot-links">
+        <li><a href="#doors">Library</a></li>
+        <li><a href="#letter">The Letter</a></li>
+        <li><a href="#build">Contribute</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </div>
+    <p class="fine">In Good Company &middot; ingoodcompany.space &middot; A Canadian network for the people who care for the dying, the dead, and the grieving. Forming now, launching 2026.</p>
+  </div>
+</footer>
+
+
+
+</body>
+</html>
