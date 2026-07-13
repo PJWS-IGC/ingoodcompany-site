@@ -204,6 +204,16 @@
     <div class="signup">
       <label>Your email</label>
       <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="e630e3d1-80a0-4827-b63d-62bac0ded406"></script>
+      <script>
+      setTimeout(function(){
+        var box = document.querySelector('.signup');
+        if (box && !box.querySelector('iframe')) {
+          box.innerHTML = '<label>Your email</label>' +
+            '<a class="btn" style="display:block;text-align:center" href="https://ingoodcompanyspace.beehiiv.com/subscribe">Keep company with us</a>' +
+            '<p style="margin-top:12px;font-size:.85rem;color:#C9BCA6">Your browser blocked the signup form, so this button opens our letter page instead. Same letter, same welcome.</p>';
+        }
+      }, 4000);
+      </script>
     </div>
   </div>
 </section>
